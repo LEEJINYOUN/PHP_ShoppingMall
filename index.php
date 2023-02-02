@@ -11,7 +11,13 @@
 
 <body>
     <?php
+    session_start();
     require('navbar.php');
+    require('conn.php');
+    $query = "SELECT * FROM `product`";
+    $result = $connect->query($query);
+
+
     ?>
     <section class="indexContainer">
         <div class="orderLine">
@@ -22,106 +28,20 @@
         </div>
         <div class="products">
             <div class="wrapper-grid">
-                <div class="itemContainer">
+                <?php while($row = mysqli_fetch_array($result)){ ?>
+                <a href="productDetail.php?idx=<?php echo $row['idx']?>" class="itemContainer">
                     <div class="listTop">
-                        <img src="https://images.unsplash.com/photo-1444011283387-7b0f76371f12?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-                            alt="profile image" class="productImg" />
+                        <?php 
+                        echo '<img src="data:image;base64,'.base64_encode($row['itemImg']).'" alt="image" class="productImg" >';
+                        ?>
                     </div>
                     <div class="listBottom">
-                        <span class="productName">상품명</span>
-                        <span class="productPrice">가격</span>
+                        <span class="productName">
+                            <?= $row['itemName']?></span>
+                        <span class="productPrice">&#8361;<?= $row['itemPrice']?></span>
                     </div>
-                </div>
-                <div class="itemContainer">
-                    <div class="listTop">
-                        <img src="https://images.unsplash.com/photo-1444011283387-7b0f76371f12?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-                            alt="profile image" class="productImg" />
-                    </div>
-                    <div class="listBottom">
-                        <span class="productName">상품명</span>
-                        <span class="productPrice">가격</span>
-                    </div>
-                </div>
-                <div class="itemContainer">
-                    <div class="listTop">
-                        <img src="https://images.unsplash.com/photo-1444011283387-7b0f76371f12?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-                            alt="profile image" class="productImg" />
-                    </div>
-                    <div class="listBottom">
-                        <span class="productName">상품명</span>
-                        <span class="productPrice">가격</span>
-                    </div>
-                </div>
-                <div class="itemContainer">
-                    <div class="listTop">
-                        <img src="https://images.unsplash.com/photo-1444011283387-7b0f76371f12?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-                            alt="profile image" class="productImg" />
-                    </div>
-                    <div class="listBottom">
-                        <span class="productName">상품명</span>
-                        <span class="productPrice">가격</span>
-                    </div>
-                </div>
-                <div class="itemContainer">
-                    <div class="listTop">
-                        <img src="https://images.unsplash.com/photo-1444011283387-7b0f76371f12?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-                            alt="profile image" class="productImg" />
-                    </div>
-                    <div class="listBottom">
-                        <span class="productName">상품명</span>
-                        <span class="productPrice">가격</span>
-                    </div>
-                </div>
-                <div class="itemContainer">
-                    <div class="listTop">
-                        <img src="https://images.unsplash.com/photo-1444011283387-7b0f76371f12?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-                            alt="profile image" class="productImg" />
-                    </div>
-                    <div class="listBottom">
-                        <span class="productName">상품명</span>
-                        <span class="productPrice">가격</span>
-                    </div>
-                </div>
-                <div class="itemContainer">
-                    <div class="listTop">
-                        <img src="https://images.unsplash.com/photo-1444011283387-7b0f76371f12?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-                            alt="profile image" class="productImg" />
-                    </div>
-                    <div class="listBottom">
-                        <span class="productName">상품명</span>
-                        <span class="productPrice">가격</span>
-                    </div>
-                </div>
-                <div class="itemContainer">
-                    <div class="listTop">
-                        <img src="https://images.unsplash.com/photo-1444011283387-7b0f76371f12?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-                            alt="profile image" class="productImg" />
-                    </div>
-                    <div class="listBottom">
-                        <span class="productName">상품명</span>
-                        <span class="productPrice">가격</span>
-                    </div>
-                </div>
-                <div class="itemContainer">
-                    <div class="listTop">
-                        <img src="https://images.unsplash.com/photo-1444011283387-7b0f76371f12?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-                            alt="profile image" class="productImg" />
-                    </div>
-                    <div class="listBottom">
-                        <span class="productName">상품명</span>
-                        <span class="productPrice">가격</span>
-                    </div>
-                </div>
-                <div class="itemContainer">
-                    <div class="listTop">
-                        <img src="https://images.unsplash.com/photo-1444011283387-7b0f76371f12?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-                            alt="profile image" class="productImg" />
-                    </div>
-                    <div class="listBottom">
-                        <span class="productName">상품명</span>
-                        <span class="productPrice">가격</span>
-                    </div>
-                </div>
+                </a>
+                <?php } ?>
             </div>
         </div>
     </section>

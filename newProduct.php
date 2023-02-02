@@ -11,6 +11,7 @@
 
 <body>
     <?php
+    session_start();
     require('navbar.php');
     ?>
     <section class="newProductContainer">
@@ -18,21 +19,23 @@
         <div class="newProductPreview">
             <img id="preview" />
         </div>
-        <form class="newProductForm">
+        <form action="newProductProcess.php" class="newProductForm" method="post" enctype="multipart/form-data">
             <div class="fileBox">
                 <input class="upLoadName" value="파일선택" disabled="disabled" />
                 <label for="upLoadBtn" class="upLoadButton">업로드</label>
-                <input type="file" accept="image/*" id="upLoadBtn" class="upLoadHidden" onchange="readURL(this);" />
+                <input type="file" name="newFile" accept="image/*" id="upLoadBtn" class="upLoadHidden"
+                    onchange="readURL(this);" />
             </div>
             <input type="text" class="newProductName" name="newName" placeholder="제품명" required />
             <input type="number" class="newProductPrice" name="newPrice" placeholder="가격" min="0" />
             <input type="text" class="newProductCategory" name="newCategory" placeholder="카테고리" required />
             <input type="text" class="newProductDescription" name="newDescription" placeholder="제품 설명" required />
             <input type="text" class="newProductOption" name="newOption" placeholder="옵션 (콤마( , )로 구분)" required />
+            <div class="newProductButton">
+                <input type="submit" class="newProductBtn" value="제품 등록">
+            </div>
         </form>
-        <div class="newProductButton">
-            <button class="newProductBtn">제품 등록</button>
-        </div>
+
     </section>
     <script src="./js/main.js"></script>
 </body>

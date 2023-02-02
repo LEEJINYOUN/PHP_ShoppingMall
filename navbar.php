@@ -11,6 +11,8 @@
 </head>
 
 <body>
+    <?php
+    if( (!isset($_SESSION['email']))){  ?>
     <nav class="navbarContainer">
         <input type="checkbox" id="navCheck" />
         <label for="navCheck" class="navCheckBtn">
@@ -20,11 +22,25 @@
         <ul>
             <li><a href="index.php">홈</a></li>
             <li><a href="cart.php">장바구니</a></li>
-            <li><a href="productDetail.php">자세히</a></li>
-            <li><a href="newProduct.php">상품등록</a></li>
             <li><a href="login.php">로그인</a></li>
         </ul>
     </nav>
+    <?php } else { ?>
+    <nav class="navbarContainer">
+        <input type="checkbox" id="navCheck" />
+        <label for="navCheck" class="navCheckBtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="navLogo">JoaMall</label>
+        <ul>
+            <li><a href="index.php">홈</a></li>
+            <li><a href="cart.php">장바구니</a></li>
+            <li><a href="newProduct.php">상품등록</a></li>
+            <li><a href="myPage.php">마이페이지</a></li>
+            <li><a href="logoutProcess.php">로그아웃</a></li>
+        </ul>
+    </nav>
+    <?php } ?>
 </body>
 
 </html>

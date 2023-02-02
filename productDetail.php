@@ -11,26 +11,38 @@
 
 <body>
     <?php
+    session_start();
     require('navbar.php');
+    require('conn.php');
+    $idx = $_GET['idx'];
+    $query = "SELECT * FROM `product` WHERE `idx`= $idx";
+    $result = $connect->query($query);
+    $rows = mysqli_fetch_assoc($result);
     ?>
     <section class="detailContainer">
         <div class="detailImgBox">
-            <img src="https://images.unsplash.com/photo-1444011283387-7b0f76371f12?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-                alt="profile image" class="detailImg" />
+            <?php
+            echo '<img src="data:image;base64,'.base64_encode($rows['itemImg']).'" alt="image" class="detailImg">';
+            ?>
         </div>
         <div class="detailContents">
-            <div class="detailTitle">프린트 코튼 셔츠</div>
-            <div class="detailPrice">&#8361;50000</div>
+            <div class="detailTitle"><?php echo $rows['itemName']?></div>
+            <div class="detailPrice">&#8361;<?php echo $rows['itemPrice']?></div>
             <div class="detailDescription">
-                더글러스 코플랜드의 we all have secret messages hidden 프린트를 더한
-                후드 코튼 셔츠
+                <?php echo $rows['itemDescription']?>
             </div>
             <div class="detailOption">
                 옵션 :
                 <select name="sizeSelect" id="sizeSelect">
-                    <option value="s" selected>s</option>
-                    <option value="m">m</option>
-                    <option value="l">l</option>
+                    <?php
+                    $optionItem = $rows['itemOption'];
+                    $arrOption = explode(',', $optionItem);
+                    $i = 0;
+                    while ($i < count($arrOption)){ ?>
+                    <option value="<?php echo trim($arrOption[$i]) ?>"><?php echo trim($arrOption[$i])?></option>
+                    <?php
+                    $i++;
+                    } ?>
                 </select>
             </div>
             <div class="detailCart">

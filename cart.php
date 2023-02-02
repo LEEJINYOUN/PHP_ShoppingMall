@@ -11,6 +11,7 @@
 
 <body>
     <?php
+    session_start();
     require('navbar.php');
     ?>
     <section class="cartContainer">

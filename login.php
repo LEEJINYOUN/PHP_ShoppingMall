@@ -15,10 +15,10 @@
     ?>
     <section class="loginContainer">
         <div class="loginTitle">로그인</div>
-        <form action="#" class="loginForm">
+        <form action="loginProcess.php" class="loginForm" method="post">
             <div class="loginInput">
-                <input type="email" placeholder="이메일" required />
-                <input type="password" placeholder="비밀번호" required />
+                <input type="email" name="email" placeholder="이메일" required />
+                <input type="password" name="pw" placeholder="비밀번호" required />
                 <input type="submit" value="로그인" />
             </div>
             <div class="signUp">
