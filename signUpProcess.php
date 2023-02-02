@@ -12,14 +12,14 @@ $joinResult = mysqli_query($connect, $joinQuery);
 if($joinResult->num_rows > 0) {
     $joinRow = mysqli_fetch_assoc($joinResult);
     $userEmail = $joinRow['email'];
-    echo "<script>alert('존재하는 아이디입니다');</script>";
+    echo "<script>alert('존재하는 이메일입니다');</script>";
     echo "<script>location.href='signUp.php';</script>";
 }
 else {
     $joinInsertQuery = "INSERT INTO `user`(`idx`, `email`, `name`, `pw`, `date`) VALUES (NULL,'$userEmail','$userName','$userPw','$joinDateNow')";
     $joinInsertResult = $connect->query($joinInsertQuery);
     $userEmail = mysqli_insert_id($connect);
-    echo "<script>alert('회원가입 성공');</script>";
+    echo "<script>alert('가입을 축하합니다.');</script>";
+    echo "<script>location.href='login.php';</script>";
 }
-echo "<script>location.href='index.php';</script>";
 ?>

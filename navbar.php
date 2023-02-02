@@ -21,7 +21,6 @@
         <label class="navLogo">JoaMall</label>
         <ul>
             <li><a href="index.php">홈</a></li>
-            <li><a href="cart.php">장바구니</a></li>
             <li><a href="login.php">로그인</a></li>
         </ul>
     </nav>

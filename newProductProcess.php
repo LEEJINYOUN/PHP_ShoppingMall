@@ -1,9 +1,6 @@
 <?php
 require('conn.php');
-
-
 $newFile = addslashes(file_get_contents($_FILES["newFile"]["tmp_name"]));
-
 $newName = mysqli_real_escape_string($connect, $_POST['newName']);
 $newPrice = mysqli_real_escape_string($connect, $_POST['newPrice']);
 $newCategory = mysqli_real_escape_string($connect, $_POST['newCategory']);

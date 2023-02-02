@@ -16,19 +16,20 @@
     require('conn.php');
     $query = "SELECT * FROM `product`";
     $result = $connect->query($query);
-
+    $orderQuery = "SELECT * FROM `product` ORDER BY idx DESC";
+    $orderResult = $connect->query($orderQuery);
 
     ?>
     <section class="indexContainer">
         <div class="orderLine">
-            <button>신상</button>
+            <button name="newProduct">신상</button>
             <button>상품명</button>
             <button>낮은가격</button>
             <button>높은가격</button>
         </div>
         <div class="products">
             <div class="wrapper-grid">
-                <?php while($row = mysqli_fetch_array($result)){ ?>
+                <?php while($row = mysqli_fetch_array($orderResult)){ ?>
                 <a href="productDetail.php?idx=<?php echo $row['idx']?>" class="itemContainer">
                     <div class="listTop">
                         <?php 

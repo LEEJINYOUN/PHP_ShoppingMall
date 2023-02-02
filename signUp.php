@@ -15,11 +15,12 @@
     ?>
     <section class="signUpContainer">
         <div class="loginTitle">회원가입</div>
-        <form action="signUpProcess.php" class="loginForm" method="post">
+        <form action="signUpProcess.php" class="loginForm" id="signUpForm" name="signUpForm" method="post"
+            onsubmit="return signUpCheck()">
             <div class="loginInput">
-                <input type="email" name="email" placeholder="이메일" required />
-                <input type="text" name="name" placeholder="이름" required />
-                <input type="password" name="pw" placeholder="비밀번호" required />
+                <input type="email" id="email" name="email" placeholder="이메일" />
+                <input type="text" id="name" name="name" placeholder="이름" />
+                <input type="password" id="pw" name="pw" placeholder="비밀번호" />
                 <input type="submit" value="회원가입" />
             </div>
             <div class="signUp">
@@ -28,6 +29,7 @@
             </div>
         </form>
     </section>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>
