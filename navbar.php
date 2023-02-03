@@ -12,7 +12,8 @@
 
 <body>
     <?php
-    if( (!isset($_SESSION['email']))){  ?>
+    $admin = 'admin@naver.com';
+    if((isset($_SESSION['email'])) && $_SESSION['email'] == $admin){  ?>
     <nav class="navbarContainer">
         <input type="checkbox" id="navCheck" />
         <label for="navCheck" class="navCheckBtn">
@@ -21,7 +22,22 @@
         <label class="navLogo">JoaMall</label>
         <ul>
             <li><a href="index.php">홈</a></li>
-            <li><a href="login.php">로그인</a></li>
+            <li><a href="cart.php?email=<?php echo $_SESSION['email']?>">장바구니</a></li>
+            <li><a href="newProduct.php">상품등록</a></li>
+            <li><a href="logoutProcess.php">로그아웃</a></li>
+        </ul>
+    </nav>
+    <?php } else if ((isset($_SESSION['email']))) { ?>
+    <nav class="navbarContainer">
+        <input type="checkbox" id="navCheck" />
+        <label for="navCheck" class="navCheckBtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="navLogo">JoaMall</label>
+        <ul>
+            <li><a href="index.php">홈</a></li>
+            <li><a href="cart.php?email=<?php echo $_SESSION['email']?>">장바구니</a></li>
+            <li><a href="logoutProcess.php">로그아웃</a></li>
         </ul>
     </nav>
     <?php } else { ?>
@@ -33,10 +49,7 @@
         <label class="navLogo">JoaMall</label>
         <ul>
             <li><a href="index.php">홈</a></li>
-            <li><a href="cart.php">장바구니</a></li>
-            <li><a href="newProduct.php">상품등록</a></li>
-            <li><a href="myPage.php">마이페이지</a></li>
-            <li><a href="logoutProcess.php">로그아웃</a></li>
+            <li><a href="login.php">로그인</a></li>
         </ul>
     </nav>
     <?php } ?>
