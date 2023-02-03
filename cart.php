@@ -25,8 +25,9 @@
                 <?php while($row = mysqli_fetch_array($mainResult)){ ?>
                 <div class="cartProduct">
                     <div class="cartProductLeft">
-                        <img src="https://images.unsplash.com/photo-1444011283387-7b0f76371f12?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-                            alt="profile image" class="cartProductImg" />
+                        <?php
+                        echo '<img src="data:image;base64,'.$row['itemImg'].'" alt="image" class="cartProductImg">';
+                        ?>
                     </div>
                     <div class="cartProductRight">
                         <div class="cartProductContentBox">

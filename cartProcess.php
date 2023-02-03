@@ -7,6 +7,7 @@ $result = $connect->query($query);
 $rows = mysqli_fetch_assoc($result);
 
 $email = $_SESSION['email'];
+$itemImg = base64_encode($rows['itemImg']);
 $itemName = $rows['itemName'];
 $itemSize = mysqli_real_escape_string($connect, $_POST['sizeSelect']);
 $itemPrice = $rows['itemPrice'];
@@ -14,8 +15,8 @@ $URL = 'index.php';
 
 $insertQuery = "INSERT INTO
                     `cart`
-                    (`idx`, `itemIdx`, `email`, `itemName`, `itemSize`, `itemPrice`)
-                    VALUES (NULL, '{$idx}', '{$email}', '{$itemName}', '{$itemSize}', '{$itemPrice}')";
+                    (`idx`, `itemIdx`, `email`, `itemImg`, `itemName`, `itemSize`, `itemPrice`)
+                    VALUES (NULL, '{$idx}', '{$email}', '{$itemImg}', '{$itemName}', '{$itemSize}', '{$itemPrice}')";
 
 $insertResult = mysqli_query($connect, $insertQuery);
 
