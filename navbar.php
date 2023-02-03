@@ -22,7 +22,7 @@
         <label class="navLogo">JoaMall</label>
         <ul>
             <li><a href="index.php">홈</a></li>
-            <li><a href="cart.php?email=<?php echo $_SESSION['email']?>">장바구니</a></li>
+            <li><a href="cart.php">장바구니</a></li>
             <li><a href="newProduct.php">상품등록</a></li>
             <li><a href="logoutProcess.php">로그아웃</a></li>
         </ul>
@@ -36,7 +36,7 @@
         <label class="navLogo">JoaMall</label>
         <ul>
             <li><a href="index.php">홈</a></li>
-            <li><a href="cart.php?email=<?php echo $_SESSION['email']?>">장바구니</a></li>
+            <li><a href="cart.php">장바구니</a></li>
             <li><a href="logoutProcess.php">로그아웃</a></li>
         </ul>
     </nav>

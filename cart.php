@@ -13,11 +13,16 @@
     <?php
     session_start();
     require('navbar.php');
+    require('conn.php');
+    $email = $_SESSION['email'];
+    $mainQuery = 'SELECT * FROM `cart` WHERE `email` ="'.$email.'"';
+    $mainResult = $connect->query($mainQuery);
     ?>
     <section class="cartContainer">
         <div class="cartTitle">장바구니</div>
         <div class="cartContents">
             <div class="cartProducts">
+                <?php while($row = mysqli_fetch_array($mainResult)){ ?>
                 <div class="cartProduct">
                     <div class="cartProductLeft">
                         <img src="https://images.unsplash.com/photo-1444011283387-7b0f76371f12?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
@@ -25,9 +30,9 @@
                     </div>
                     <div class="cartProductRight">
                         <div class="cartProductContentBox">
-                            <span class="cartProductTitle">스트레치 비스코스 드레스</span>
-                            <span class="cartProductSize">m</span>
-                            <span class="cartProductPrice">&#8361;150000</span>
+                            <span class="cartProductTitle"><?= $row['itemName']?></span>
+                            <span class="cartProductSize"><?= $row['itemSize']?></span>
+                            <span class="cartProductPrice">&#8361;<?= $row['itemPrice']?></span>
                         </div>
                         <div class="cartProductCountBox">
                             <div class="cartProductCount">
@@ -38,7 +43,9 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
+                <?php } ?>
             </div>
             <div class="cartPrices">
                 <div class="priceBox">

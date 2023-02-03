@@ -15,6 +15,7 @@
     require('navbar.php');
     require('conn.php');
     $idx = $_GET['idx'];
+    $email = $_SESSION['email'];
     $query = "SELECT * FROM `product` WHERE `idx`= $idx";
     $result = $connect->query($query);
     $rows = mysqli_fetch_assoc($result);
@@ -25,7 +26,7 @@
             echo '<img src="data:image;base64,'.base64_encode($rows['itemImg']).'" alt="image" class="detailImg">';
             ?>
         </div>
-        <div class="detailContents">
+        <form action="cartProcess.php" class="detailContents" method="post">
             <div class="detailTitle"><?php echo $rows['itemName']?></div>
             <div class="detailPrice">&#8361;<?php echo $rows['itemPrice']?></div>
             <div class="detailDescription">
@@ -45,11 +46,16 @@
                     } ?>
                 </select>
             </div>
+            <input type="text" class="indexInput" value="<?php echo $rows['idx']?>" name="idx" readonly>
+            <?php
+                if((isset($_SESSION['email']))) { ?>
             <div class="detailCart">
-                <button class="cartToBtn">장바구니 담기</button>
+                <input type="submit" class="cartToBtn" value="장바구니 담기">
             </div>
-        </div>
+            <?php } ?>
+        </form>
     </section>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>

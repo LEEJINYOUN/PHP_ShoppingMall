@@ -71,7 +71,7 @@
 }
 
 .cartToBtn {
-  width: 300px;
+  width: 100%;
   height: 50px;
   font-size: 20px;
   color: white;
@@ -80,6 +80,10 @@
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+}
+
+.indexInput {
+  display: none;
 }
 
 .cartToBtn:hover {
@@ -124,11 +128,5 @@
 
   .detailDescription {
     font-size: 14px;
-  }
-
-  .cartToBtn {
-    width: 270px;
-    height: 35px;
-    font-size: 17px;
   }
 }
