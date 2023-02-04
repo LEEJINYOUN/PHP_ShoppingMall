@@ -120,12 +120,12 @@
   align-items: center;
 }
 
-.cartProductDelete > i {
+.cartProductDelete > a {
   cursor: pointer;
   font-size: 17px;
 }
 
-.cartProductDelete > i:hover {
+.cartProductDelete > a:hover {
   color: red;
 }
 

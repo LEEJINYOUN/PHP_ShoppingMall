@@ -40,7 +40,12 @@
                                 <input type="number" value="1" min="1" max="5" />
                             </div>
                             <div class="cartProductDelete">
+                                <?php 
+                                echo"<a href='cartDelete.php?idx=".$row['idx']."'>"?>
                                 <i class="fa-solid fa-trash"></i>
+                                <?php 
+                                echo"</a>"
+                                ?>
                             </div>
                         </div>
                     </div>
