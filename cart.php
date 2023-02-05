@@ -37,11 +37,11 @@
                         </div>
                         <div class="cartProductCountBox">
                             <div class="cartProductCount">
-                                <input type="number" value="1" min="1" max="5" />
+                                <?= $row['itemCount']?>
                             </div>
                             <div class="cartProductDelete">
                                 <?php 
-                                echo"<a href='cartDelete.php?idx=".$row['idx']."'>"?>
+                                echo"<a href='cartDelete.php?idx=".$row['idx']."&email=".$row['email']."&price=".$row['itemPrice']."&count=".$row['itemCount']."'>"?>
                                 <i class="fa-solid fa-trash"></i>
                                 <?php 
                                 echo"</a>"
@@ -49,24 +49,29 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <?php } ?>
             </div>
             <div class="cartPrices">
                 <div class="priceBox">
                     <span class="priceBoxText">상품 총액</span>
-                    <span class="priceBoxPrice">&#8361;50000</span>
+                    <?php
+                    $totalQuery = 'SELECT * FROM `totalprice` WHERE `email` ="'.$email.'"';
+                    $totalResult = $connect->query($totalQuery);
+                    $totalRows = mysqli_fetch_assoc($totalResult);
+                    $deliveryPay = 3000;
+                    ?>
+                    <span class="priceBoxPrice">&#8361;<?php echo $totalRows['totalPrice']?></span>
                 </div>
                 <span class="pricePlus">+</span>
                 <div class="priceBox">
                     <span class="priceBoxText">배송비</span>
-                    <span class="priceBoxPrice">&#8361;3000</span>
+                    <span class="priceBoxPrice">&#8361;<?php echo $deliveryPay?></span>
                 </div>
                 <span class="priceEquals">=</span>
                 <div class="priceBox">
                     <span class="priceBoxText">총 가격</span>
-                    <span class="priceBoxPrice">&#8361;203000</span>
+                    <span class="priceBoxPrice">&#8361;<?php echo $totalRows['totalPrice'] + $deliveryPay?></span>
                 </div>
             </div>
             <div class="cartButton">

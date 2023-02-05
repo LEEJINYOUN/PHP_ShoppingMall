@@ -46,7 +46,8 @@
                     } ?>
                 </select>
             </div>
-            <input type="text" class="indexInput" value="<?php echo $rows['idx']?>" name="idx" readonly>
+            <input type="number" value="1" min="1" max="5" name="itemCount" />
+            <input type="hidden" value="<?php echo $rows['idx']?>" name="idx" readonly>
             <?php
                 if((isset($_SESSION['email']))) { ?>
             <div class="detailCart">

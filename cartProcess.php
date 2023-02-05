@@ -11,13 +11,16 @@ $itemImg = base64_encode($rows['itemImg']);
 $itemName = $rows['itemName'];
 $itemSize = mysqli_real_escape_string($connect, $_POST['sizeSelect']);
 $itemPrice = $rows['itemPrice'];
+$itemCount = mysqli_real_escape_string($connect, $_POST['itemCount']);
+$total = $itemPrice * $itemCount;
 $URL = 'index.php';
 
 $insertQuery = "INSERT INTO
                     `cart`
-                    (`idx`, `itemIdx`, `email`, `itemImg`, `itemName`, `itemSize`, `itemPrice`)
-                    VALUES (NULL, '{$idx}', '{$email}', '{$itemImg}', '{$itemName}', '{$itemSize}', '{$itemPrice}')";
-
+                    (`idx`, `itemIdx`, `email`, `itemImg`, `itemName`, `itemSize`, `itemPrice`, `itemCount`)
+                    VALUES (NULL, '{$idx}', '{$email}', '{$itemImg}', '{$itemName}', '{$itemSize}', '{$itemPrice}', '{$itemCount}')";
+$totalPrice = "UPDATE `totalprice` SET `totalprice` = totalprice + $total WHERE `email`='$email'";
+$connect->query($totalPrice);
 $insertResult = mysqli_query($connect, $insertQuery);
 
 if ($insertResult) { ?>
