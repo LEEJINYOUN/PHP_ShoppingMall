@@ -35,7 +35,8 @@
 .detailTitle,
 .detailPrice,
 .detailDescription,
-.detailOption {
+.detailOption,
+.detailCount {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -62,6 +63,12 @@
   width: 220px;
   height: 30px;
   text-transform: uppercase;
+}
+
+#itemCount {
+  margin-left: 10px;
+  width: 220px;
+  height: 30px;
 }
 
 .detailCart {
@@ -96,7 +103,7 @@
   .detailContainer {
     flex-direction: column;
     width: 450px;
-    height: 750px;
+    height: 770px;
   }
 
   .detailImgBox {
@@ -111,7 +118,8 @@
 
   .detailContents > div {
     width: 100%;
-    height: 20%;
+    height: 14%;
+    margin-bottom: 5px;
   }
 
   .detailTitle {
@@ -124,5 +132,9 @@
 
   .detailDescription {
     font-size: 14px;
+  }
+
+  .detailCart {
+    margin-top: 10px;
   }
 }

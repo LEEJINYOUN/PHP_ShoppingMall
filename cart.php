@@ -17,9 +17,18 @@
     $email = $_SESSION['email'];
     $mainQuery = 'SELECT * FROM `cart` WHERE `email` ="'.$email.'"';
     $mainResult = $connect->query($mainQuery);
+
+    $totalQuery = 'SELECT * FROM `totalprice` WHERE `email` ="'.$email.'"';
+    $totalResult = $connect->query($totalQuery);
+    $totalRows = mysqli_fetch_assoc($totalResult);
+    $deliveryPay = 3000;
     ?>
+
     <section class="cartContainer">
         <div class="cartTitle">장바구니</div>
+        <?php if($totalRows['totalPrice'] == 0){ ?>
+        <span class="cartEmpty">장바구니가 비어있습니다.</span>
+        <?php } else{?>
         <div class="cartContents">
             <div class="cartProducts">
                 <?php while($row = mysqli_fetch_array($mainResult)){ ?>
@@ -37,7 +46,7 @@
                         </div>
                         <div class="cartProductCountBox">
                             <div class="cartProductCount">
-                                <?= $row['itemCount']?>
+                                <?= $row['itemCount']?>개
                             </div>
                             <div class="cartProductDelete">
                                 <?php 
@@ -55,12 +64,6 @@
             <div class="cartPrices">
                 <div class="priceBox">
                     <span class="priceBoxText">상품 총액</span>
-                    <?php
-                    $totalQuery = 'SELECT * FROM `totalprice` WHERE `email` ="'.$email.'"';
-                    $totalResult = $connect->query($totalQuery);
-                    $totalRows = mysqli_fetch_assoc($totalResult);
-                    $deliveryPay = 3000;
-                    ?>
                     <span class="priceBoxPrice">&#8361;<?php echo $totalRows['totalPrice']?></span>
                 </div>
                 <span class="pricePlus">+</span>
@@ -78,6 +81,7 @@
                 <button class="cartBtn">주문하기</button>
             </div>
         </div>
+        <?php } ?>
     </section>
     <script src="https://kit.fontawesome.com/e3d83117d8.js" crossorigin="anonymous"></script>
 </body>

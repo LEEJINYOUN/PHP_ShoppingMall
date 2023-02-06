@@ -46,7 +46,10 @@
                     } ?>
                 </select>
             </div>
-            <input type="number" value="1" min="1" max="5" name="itemCount" />
+            <div class="detailCount">
+                개수 :
+                <input type="number" value="1" min="1" max="5" name="itemCount" id="itemCount" />
+            </div>
             <input type="hidden" value="<?php echo $rows['idx']?>" name="idx" readonly>
             <?php
                 if((isset($_SESSION['email']))) { ?>
