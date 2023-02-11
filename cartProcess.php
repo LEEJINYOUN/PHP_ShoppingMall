@@ -17,14 +17,14 @@ $URL = 'index.php';
 
 $insertQuery = "INSERT INTO
                     `cart`
-                    (`itemIdx`, `email`, `itemImg`, `itemName`, `itemSize`, `itemPrice`, `itemCount`)
-                    VALUES ('{$idx}', '{$email}', '{$itemImg}', '{$itemName}', '{$itemSize}', '{$itemPrice}', '{$itemCount}')
+                    (`idx`, `itemIdx`, `email`, `itemImg`, `itemName`, `itemSize`, `itemPrice`, `itemCount`)
+                    VALUES (NULL, '{$idx}', '{$email}', '{$itemImg}', '{$itemName}', '{$itemSize}', '{$itemPrice}', '{$itemCount}')
                     ON DUPLICATE KEY UPDATE `itemCount` = itemCount + $itemCount";
 $totalPrice = "UPDATE `totalprice` SET `totalprice` = totalprice + $total WHERE `email`='$email'";
 $connect->query($totalPrice);
 $insertResult = mysqli_query($connect, $insertQuery);
 
-if ($insertResult) { ?>
+if ($insertResult) {?>
 <script>
 alert('<?php echo '장바구니 추가 완료'?>');
 location.replace('<?php echo $URL ?>');
