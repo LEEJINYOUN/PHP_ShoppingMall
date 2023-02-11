@@ -19,9 +19,9 @@
         <label for="navCheck" class="navCheckBtn">
             <i class="fas fa-bars"></i>
         </label>
-        <label class="navLogo">JoaMall</label>
+        <a href="index.php" class="navLogo">JoaMall</a>
         <ul>
-            <li><a href="index.php">홈</a></li>
+            <li><a href="allProducts.php">모든 상품</a></li>
             <li><a href="cart.php">장바구니</a></li>
             <li><a href="newProduct.php">상품등록</a></li>
             <li><a href="logoutProcess.php">로그아웃</a></li>
@@ -33,9 +33,9 @@
         <label for="navCheck" class="navCheckBtn">
             <i class="fas fa-bars"></i>
         </label>
-        <label class="navLogo">JoaMall</label>
+        <a href="index.php" class="navLogo">JoaMall</a>
         <ul>
-            <li><a href="index.php">홈</a></li>
+            <li><a href="allProducts.php">모든 상품</a></li>
             <li><a href="cart.php">장바구니</a></li>
             <li><a href="logoutProcess.php">로그아웃</a></li>
         </ul>
@@ -46,9 +46,9 @@
         <label for="navCheck" class="navCheckBtn">
             <i class="fas fa-bars"></i>
         </label>
-        <label class="navLogo">JoaMall</label>
+        <a href="index.php" class="navLogo">JoaMall</a>
         <ul>
-            <li><a href="index.php">홈</a></li>
+            <li><a href="allProducts.php">모든 상품</a></li>
             <li><a href="login.php">로그인</a></li>
         </ul>
     </nav>

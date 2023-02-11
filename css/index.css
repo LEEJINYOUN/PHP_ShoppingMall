@@ -4,22 +4,20 @@
   box-sizing: border-box;
 }
 
-.orderLine {
-  display: flex;
-  justify-content: flex-end;
-  margin: auto;
-  width: 80%;
+a {
+  color: inherit;
 }
 
-.orderLine > button {
-  margin-left: 10px;
-  cursor: pointer;
+.indexContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .products {
-  margin: auto;
   display: flex;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .wrapper-grid {
